@@ -1,0 +1,25 @@
+
+<view class="weeks box">
+    <view class="week fs28" wx:for="{{weeks_ch}}" wx:key="{{index}}" data-idx="{{index}}">{{item}}
+    </view>
+</view>
+
+<block wx:for="{{allDays}}" wx:for-item="object">
+    <!--年月-->
+    <view class="date-area" style="">
+        <view>{{object.year || "--"}} 年 {{object.month || "--"}} 月</view>
+    </view>
+    <!--日-->
+    <view class="days">
+        <!--循环空-->
+        <view wx:if="{{object.hasEmptyGrid}}" class="grid white-color" wx:for="{{object.empytGrids}}" wx:key="{{index}}" data-idx="{{index}}"></view>
+        <!--循环天-->
+        <view class="grid white-color" wx:for="{{object.days}}" wx:key="{{index}}" data-idx="{{index}}"  data-object="{{object}}" bindtap="selectAction" style="">
+            <!--天-->
+            <view class="day {{item.status==0 ? 'disable' : 'enable'}} {{item.status==3 ? 'border-radius pink-bg' : ''}}">{{item.day}}</view>
+            <!--今天-->
+            <view wx:if="{{item.status==1}}" style="color:gray;font-size:12px;text-align:center;">今天</view>
+        </view>
+    </view>
+</block>
+  

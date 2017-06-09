@@ -1,0 +1,9 @@
+<!--index.wxml-->
+<view class="container">
+  <view  bindtap="bindViewTap" class="userinfo">
+   {{tips}} 
+  </view>
+ <view  bindtap="bindViewTap" class="userinfo">
+   {{date}} 至 {{tomorrow}}
+  </view>
+</view>
